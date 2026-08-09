@@ -1,433 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Meera ❤️ My Love</title>
+<title>For Meera ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      min-height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #ff758c, transparent 45%),
-        linear-gradient(135deg, #18001f, #4b003f, #140014);
-      color: white;
-    }
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  color:white;
+  text-align:center;
+  background:linear-gradient(135deg,#16001f,#70002f,#ff416c);
+}
 
-    /* Stars */
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-    }
+.container{
+  width:92%;
+  max-width:650px;
+  padding:35px 22px;
+  border-radius:30px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 40px rgba(255,0,100,.4);
+}
 
-    .star {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite alternate;
-    }
+.heart{
+  font-size:65px;
+  animation:beat 1.2s infinite;
+}
 
-    @keyframes twinkle {
-      from {
-        opacity: 0.2;
-        transform: scale(0.5);
-      }
+@keyframes beat{
+  50%{transform:scale(1.2)}
+}
 
-      to {
-        opacity: 1;
-        transform: scale(1.5);
-      }
-    }
+h1{
+  font-size:clamp(45px,13vw,85px);
+  letter-spacing:8px;
+  text-shadow:
+  0 0 10px white,
+  0 0 25px #ff4d88,
+  0 0 50px #ff0066;
+  animation:glow 2s infinite alternate;
+}
 
-    /* Main card */
-    .card {
-      position: relative;
-      width: 92%;
-      max-width: 700px;
-      padding: 45px 25px;
-      text-align: center;
-      border-radius: 35px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(15px);
-      box-shadow:
-        0 0 40px rgba(255, 50, 120, 0.35),
-        inset 0 0 30px rgba(255,255,255,0.05);
-      animation: cardIn 2s ease;
-      z-index: 5;
-    }
+@keyframes glow{
+  from{filter:brightness(1)}
+  to{filter:brightness(1.5)}
+}
 
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: scale(0.7) translateY(50px);
-      }
+h2{
+  margin:15px 0;
+}
 
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
+p{
+  font-size:18px;
+  line-height:1.7;
+  margin:15px 0;
+}
 
-    .small-text {
-      font-size: 16px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:25px;
+}
 
-    /* MEERA glowing text */
-    .name {
-      margin: 15px 0;
-      font-size: clamp(55px, 16vw, 120px);
-      font-weight: 900;
-      letter-spacing: 12px;
-      color: #fff;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 10px #ff4d88,
-        0 0 20px #ff4d88,
-        0 0 40px #ff0066,
-        0 0 80px #ff0066;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
+button{
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#d60055;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    @keyframes glow {
-      from {
-        text-shadow:
-          0 0 5px #fff,
-          0 0 10px #ff4d88,
-          0 0 20px #ff4d88,
-          0 0 40px #ff0066;
-      }
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px white;
+}
 
-      to {
-        text-shadow:
-          0 0 10px #fff,
-          0 0 20px #ff99bb,
-          0 0 40px #ff4d88,
-          0 0 70px #ff0066,
-          0 0 100px #ff0066;
-      }
-    }
+#message{
+  margin-top:25px;
+  min-height:60px;
+  font-size:20px;
+  font-weight:bold;
+  color:#ffe1eb;
+}
 
-    .love {
-      font-size: 27px;
-      margin-bottom: 20px;
-    }
+.hidden{
+  display:none;
+}
 
-    .heart {
-      font-size: 70px;
-      display: inline-block;
-      animation: heartbeat 1.2s infinite;
-      filter: drop-shadow(0 0 15px #ff1744);
-    }
+.final{
+  font-size:24px;
+  line-height:1.8;
+  animation:appear 1s ease;
+}
 
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-      }
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:scale(.7);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
 
-      25% {
-        transform: scale(1.15);
-      }
+.floating{
+  position:fixed;
+  bottom:-40px;
+  animation:float 7s linear forwards;
+  pointer-events:none;
+}
 
-      40% {
-        transform: scale(1);
-      }
-
-      60% {
-        transform: scale(1.2);
-      }
-    }
-
-    .message {
-      max-width: 550px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.9);
-    }
-
-    /* Button */
-    .love-button {
-      margin-top: 30px;
-      padding: 16px 35px;
-      border: none;
-      border-radius: 50px;
-      background: white;
-      color: #d60055;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(255,255,255,0.4);
-      transition: 0.3s;
-    }
-
-    .love-button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(255,255,255,0.8);
-    }
-
-    /* Secret message */
-    #secret {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 1.2s ease;
-    }
-
-    #secret.show {
-      max-height: 300px;
-      opacity: 1;
-      margin-top: 25px;
-    }
-
-    .secret-text {
-      font-size: 20px;
-      line-height: 1.7;
-      color: #ffd6e5;
-    }
-
-    /* Floating hearts */
-    .floating-heart {
-      position: fixed;
-      bottom: -50px;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatUp linear forwards;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translateY(-115vh)
-          rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* Sparkles */
-    .sparkle {
-      position: fixed;
-      pointer-events: none;
-      color: white;
-      animation: sparkle 1.5s forwards;
-      z-index: 10;
-    }
-
-    @keyframes sparkle {
-      0% {
-        transform: scale(0);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.5);
-      }
-
-      100% {
-        transform: scale(0);
-        opacity: 0;
-      }
-    }
-
-    .footer {
-      margin-top: 25px;
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-  </style>
+@keyframes float{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="stars" id="stars"></div>
+<div class="container">
 
-  <div class="card">
+  <div class="heart">❤️</div>
 
-    <div class="small-text">
-      A special message for
-    </div>
+  <h1>MEERA</h1>
 
-    <div class="heart">❤️</div>
+  <h2>💌 I Have A Question For You...</h2>
 
-    <div class="name">
-      MEERA
-    </div>
+  <p>
+    Before you continue, you have to make some choices. 😏❤️
+  </p>
 
-    <div class="love">
-      You are my favourite person in this world. 💕
-    </div>
+  <div id="question1">
 
-    <p class="message">
-      Meera, sometimes words aren't enough to explain
-      how special you are to me. You bring happiness
-      into my life and make ordinary moments feel
-      extraordinary.
+    <p>
+      <b>What do you think you are to me?</b> ❤️
     </p>
 
-    <button class="love-button" onclick="openMessage()">
-      💌 Open My Heart
-    </button>
+    <div class="buttons">
 
-    <div id="secret">
-      <p class="secret-text">
-        My beautiful Meera ❤️<br><br>
+      <button onclick="answer1('wrong')">
+        Just a friend 😅
+      </button>
 
-        If I could give you one thing in life,
-        I would give you the ability to see yourself
-        through my eyes — because then you would know
-        just how precious you are to me. 🌹<br><br>
+      <button onclick="answer1('right')">
+        Someone very special ❤️
+      </button>
 
-        I love you more than words can explain. ❤️
-      </p>
-    </div>
+      <button onclick="answer1('love')">
+        The love of your life? 🥹💕
+      </button>
 
-    <div class="footer">
-      Made with ❤️ just for Meera
     </div>
 
   </div>
 
-  <script>
 
-    /* Create stars */
-    const stars = document.getElementById("stars");
+  <div id="question2" class="hidden">
 
-    for (let i = 0; i < 100; i++) {
+    <p>
+      <b>Choose one thing you want from me...</b> 💕
+    </p>
 
-      const star = document.createElement("div");
+    <div class="buttons">
 
-      star.className = "star";
+      <button onclick="answer2('hug')">
+        A big hug 🤗
+      </button>
 
-      star.style.left = Math.random() * 100 + "vw";
-      star.style.top = Math.random() * 100 + "vh";
+      <button onclick="answer2('love')">
+        Unlimited love ❤️
+      </button>
 
-      star.style.animationDelay =
-        Math.random() * 2 + "s";
+      <button onclick="answer2('forever')">
+        Forever together 💍
+      </button>
 
-      stars.appendChild(star);
-    }
+    </div>
 
-
-    /* Floating hearts */
-    function createHeart() {
-
-      const heart = document.createElement("div");
-
-      heart.className = "floating-heart";
-
-      const hearts = ["❤️", "💖", "💕", "💗", "💓", "💘"];
-
-      heart.innerHTML =
-        hearts[Math.floor(Math.random() * hearts.length)];
-
-      heart.style.left =
-        Math.random() * 100 + "vw";
-
-      heart.style.fontSize =
-        Math.random() * 25 + 15 + "px";
-
-      heart.style.animationDuration =
-        Math.random() * 5 + 6 + "s";
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 12000);
-    }
-
-    setInterval(createHeart, 450);
+  </div>
 
 
-    /* Secret message */
-    function openMessage() {
+  <div id="question3" class="hidden">
 
-      const secret =
-        document.getElementById("secret");
+    <p>
+      <b>One last choice...</b> 👀❤️
+    </p>
 
-      secret.classList.toggle("show");
+    <p>
+      Will you keep me in your heart?
+    </p>
 
-      createExplosion();
-    }
+    <div class="buttons">
+
+      <button onclick="finish()">
+        YES ❤️
+      </button>
+
+      <button onclick="finish()">
+        OF COURSE ❤️
+      </button>
+
+      <button onclick="finish()">
+        ALWAYS 💍❤️
+      </button>
+
+    </div>
+
+  </div>
 
 
-    /* Heart/sparkle explosion */
-    function createExplosion() {
+  <div id="message"></div>
 
-      for (let i = 0; i < 35; i++) {
+</div>
 
-        const sparkle =
-          document.createElement("div");
 
-        sparkle.className = "sparkle";
+<script>
 
-        sparkle.innerHTML =
-          Math.random() > 0.5 ? "❤️" : "✨";
+function answer1(choice){
 
-        sparkle.style.left = "50%";
-        sparkle.style.top = "50%";
+  document.getElementById("question1")
+  .classList.add("hidden");
 
-        const x =
-          (Math.random() - 0.5) * 500;
+  document.getElementById("question2")
+  .classList.remove("hidden");
 
-        const y =
-          (Math.random() - 0.5) * 500;
+  const message =
+    document.getElementById("message");
 
-        sparkle.animate(
-          [
-            {
-              transform: "translate(0,0) scale(0)",
-              opacity: 1
-            },
-            {
-              transform:
-                `translate(${x}px, ${y}px) scale(1.5)`,
-              opacity: 0
-            }
-          ],
-          {
-            duration: 1200,
-            easing: "ease-out"
-          }
-        );
+  if(choice === "wrong"){
+    message.innerHTML =
+      "Nice try 😂 But you are MUCH more than that. ❤️";
+  }
 
-        document.body.appendChild(sparkle);
+  else if(choice === "right"){
+    message.innerHTML =
+      "Exactly... but I think you're even more special. 🥹❤️";
+  }
 
-        setTimeout(() => {
-          sparkle.remove();
-        }, 1500);
-      }
-    }
+  else{
+    message.innerHTML =
+      "You already know my heart. 😭❤️";
+  }
 
-  </script>
+}
+
+
+function answer2(choice){
+
+  document.getElementById("question2")
+  .classList.add("hidden");
+
+  document.getElementById("question3")
+  .classList.remove("hidden");
+
+  const message =
+    document.getElementById("message");
+
+  if(choice === "hug"){
+    message.innerHTML =
+      "Then come here... 🤗❤️";
+  }
+
+  else if(choice === "love"){
+    message.innerHTML =
+      "That one is easy. You already have it. ❤️";
+  }
+
+  else{
+    message.innerHTML =
+      "Forever sounds perfect to me. 💍❤️";
+  }
+
+}
+
+
+function finish(){
+
+  document.getElementById("question3")
+  .classList.add("hidden");
+
+  document.getElementById("message")
+  .innerHTML = `
+
+    <div class="final">
+
+      ❤️ MEERA ❤️
+
+      <br><br>
+
+      You made it to the end...
+
+      <br><br>
+
+      But here's the truth:
+
+      <br><br>
+
+      I don't need a website to tell you
+      how much I love you.
+
+      <br><br>
+
+      I just wanted to create something
+      special that reminds you...
+
+      <br><br>
+
+      <b>YOU ARE LOVED. ❤️</b>
+
+      <br><br>
+
+      And if I had to choose again...
+
+      <br>
+
+      <b>I WOULD STILL CHOOSE YOU. 💕</b>
+
+      <br><br>
+
+      Forever yours. ❤️
+
+    </div>
+
+  `;
+
+  createHearts();
+
+}
+
+
+function createHearts(){
+
+  for(let i=0;i<40;i++){
+
+    const heart =
+      document.createElement("div");
+
+    heart.className="floating";
+
+    heart.innerHTML =
+      ["❤️","💖","💕","💗","💓","✨"]
+      [Math.floor(Math.random()*6)];
+
+    heart.style.left =
+      Math.random()*100+"vw";
+
+    heart.style.fontSize =
+      Math.random()*25+15+"px";
+
+    heart.style.animationDuration =
+      Math.random()*4+4+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },8000);
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
